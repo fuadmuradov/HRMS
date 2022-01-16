@@ -1,0 +1,307 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="HRMSystemModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Department">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="department1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Emp_company_Department" FromRole="Department" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Earning_details">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="emekhaqqi" Type="Int32" />
+    <Property Name="gunluk_haqq" Type="Int32" />
+    <Property Name="vergi" Type="Int32" />
+    <Property Name="hefte_is_gunu" Type="Int32" />
+    <Property Name="ayliq_is_gunu" Type="Int32" />
+    <Property Name="Emp_id" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Earning_details_Emp_company" FromRole="Earning_details" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Emp_Adress">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ev_number" Type="Int32" />
+    <Property Name="kuce_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Seher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Sexsiyyet_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="phone_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mobil_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="main_seher" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="main_kuce" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="main_ev" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="main_phone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_id" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Emp_Adress_Emp_company" FromRole="Emp_Adress" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Emp_company">
+    <Key>
+      <PropertyRef Name="EMP_ID" />
+    </Key>
+    <Property Name="EMP_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="muraciet_kod" Type="Int32" />
+    <Property Name="categoriya" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Derece" Type="Int32" />
+    <Property Name="pers_e_mail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="kart_number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="department" Type="Int32" />
+    <NavigationProperty Name="Department1" Relationship="Self.FK_Emp_company_Department" FromRole="Emp_company" ToRole="Department" />
+    <NavigationProperty Name="Earning_details" Relationship="Self.FK_Earning_details_Emp_company" FromRole="Emp_company" ToRole="Earning_details" />
+    <NavigationProperty Name="Emp_Adress" Relationship="Self.FK_Emp_Adress_Emp_company" FromRole="Emp_company" ToRole="Emp_Adress" />
+    <NavigationProperty Name="Emp_main" Relationship="Self.FK_Emp_main_Emp_company" FromRole="Emp_company" ToRole="Emp_main" />
+    <NavigationProperty Name="Is_ayrintilari" Relationship="Self.FK_Is_ayrintilari_Emp_company" FromRole="Emp_company" ToRole="Is_ayrintilari" />
+    <NavigationProperty Name="Leaves" Relationship="Self.FK_Leaves_Emp_company" FromRole="Emp_company" ToRole="Leaves" />
+    <NavigationProperty Name="Monthly_Leaves" Relationship="Self.FK_Monthly_Leaves_Emp_company" FromRole="Emp_company" ToRole="Monthly_Leaves" />
+    <NavigationProperty Name="Payrolls" Relationship="Self.FK_Payroll_Emp_company" FromRole="Emp_company" ToRole="Payroll" />
+  </EntityType>
+  <EntityType Name="Emp_main">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ata_adi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Qan_qrupu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="DBT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Din" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="aile_durumu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="milliyet" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_number" Type="Int32" />
+    <Property Name="photo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Emp_main_Emp_company" FromRole="Emp_main" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Is_ayrintilari">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="is_vaxti" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gorus_tarixi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="muqavile_tarixi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="artim" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="sobe" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="department" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="vezife" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="mudur" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CV" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_id" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Is_ayrintilari_Emp_company" FromRole="Is_ayrintilari" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Leaf">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="start_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="end_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="date_count" Type="Int32" />
+    <Property Name="tam_gun" Type="Int32" />
+    <Property Name="gunun_yarisi" Type="Int32" />
+    <Property Name="Emp_id" Type="Int32" />
+    <Property Name="Sebeb" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="tetil_gunu" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Leaves_Emp_company" FromRole="Leaves" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Monthly_Leaves">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="gun_sayi" Type="Int32" />
+    <Property Name="ay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="il" Type="Int32" />
+    <Property Name="sebeb" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+    <Property Name="Emp_id" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Monthly_Leaves_Emp_company" FromRole="Monthly_Leaves" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="Muraciet1">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Ad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Soyad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="DBT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="E_mail" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Telefon" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tehsil" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Tecrube" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Onceki_sirket" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Vezife" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+    <Property Name="Emekhaqqi" Type="Int32" />
+    <Property Name="CV" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Payroll">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ay" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="il" Type="Int32" />
+    <Property Name="diger_odenis" Type="Int32" />
+    <Property Name="ayliq_odenis" Type="Int32" />
+    <Property Name="yekun_odenis" Type="Int32" />
+    <Property Name="Emp_id" Type="Int32" />
+    <NavigationProperty Name="Emp_company" Relationship="Self.FK_Payroll_Emp_company" FromRole="Payroll" ToRole="Emp_company" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Emp_company_Department">
+    <End Role="Department" Type="Self.Department" Multiplicity="0..1" />
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Department">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="Emp_company">
+        <PropertyRef Name="department" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Earning_details_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Earning_details" Type="Self.Earning_details" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Earning_details">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emp_Adress_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Emp_Adress" Type="Self.Emp_Adress" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Emp_Adress">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Emp_main_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Emp_main" Type="Self.Emp_main" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Emp_main">
+        <PropertyRef Name="Emp_number" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Is_ayrintilari_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Is_ayrintilari" Type="Self.Is_ayrintilari" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Is_ayrintilari">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Leaves_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Leaves" Type="Self.Leaf" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Leaves">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Monthly_Leaves_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Monthly_Leaves" Type="Self.Monthly_Leaves" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Monthly_Leaves">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Payroll_Emp_company">
+    <End Role="Emp_company" Type="Self.Emp_company" Multiplicity="0..1" />
+    <End Role="Payroll" Type="Self.Payroll" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Emp_company">
+        <PropertyRef Name="EMP_ID" />
+      </Principal>
+      <Dependent Role="Payroll">
+        <PropertyRef Name="Emp_id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="HRMSystemEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Departments" EntityType="Self.Department" />
+    <EntitySet Name="Earning_details" EntityType="Self.Earning_details" />
+    <EntitySet Name="Emp_Adress" EntityType="Self.Emp_Adress" />
+    <EntitySet Name="Emp_company" EntityType="Self.Emp_company" />
+    <EntitySet Name="Emp_main" EntityType="Self.Emp_main" />
+    <EntitySet Name="Is_ayrintilari" EntityType="Self.Is_ayrintilari" />
+    <EntitySet Name="Leaves" EntityType="Self.Leaf" />
+    <EntitySet Name="Monthly_Leaves" EntityType="Self.Monthly_Leaves" />
+    <EntitySet Name="Muraciet1" EntityType="Self.Muraciet1" />
+    <EntitySet Name="Payrolls" EntityType="Self.Payroll" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Emp_company_Department" Association="Self.FK_Emp_company_Department">
+      <End Role="Department" EntitySet="Departments" />
+      <End Role="Emp_company" EntitySet="Emp_company" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Earning_details_Emp_company" Association="Self.FK_Earning_details_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Earning_details" EntitySet="Earning_details" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emp_Adress_Emp_company" Association="Self.FK_Emp_Adress_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Emp_Adress" EntitySet="Emp_Adress" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Emp_main_Emp_company" Association="Self.FK_Emp_main_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Emp_main" EntitySet="Emp_main" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Is_ayrintilari_Emp_company" Association="Self.FK_Is_ayrintilari_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Is_ayrintilari" EntitySet="Is_ayrintilari" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Leaves_Emp_company" Association="Self.FK_Leaves_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Leaves" EntitySet="Leaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Monthly_Leaves_Emp_company" Association="Self.FK_Monthly_Leaves_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Monthly_Leaves" EntitySet="Monthly_Leaves" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Payroll_Emp_company" Association="Self.FK_Payroll_Emp_company">
+      <End Role="Emp_company" EntitySet="Emp_company" />
+      <End Role="Payroll" EntitySet="Payrolls" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

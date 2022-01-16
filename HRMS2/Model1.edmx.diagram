@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2d617f51941348d4bc52850998ce4bea" Name="Diagram1">
+        <EntityTypeShape EntityType="HRMSystemModel.Department" Width="1.5" PointX="0.75" PointY="13.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Earning_details" Width="1.5" PointX="5.25" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Emp_Adress" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Emp_company" Width="1.5" PointX="3" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Emp_main" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Is_ayrintilari" Width="1.5" PointX="5.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Leaf" Width="1.5" PointX="5.25" PointY="17.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Monthly_Leaves" Width="1.5" PointX="5.25" PointY="21.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Muraciet1" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.Payroll" Width="1.5" PointX="5.25" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="HRMSystemModel.sysdiagram" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <AssociationConnector Association="HRMSystemModel.FK_Emp_company_Department" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Earning_details_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Emp_Adress_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Emp_main_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Is_ayrintilari_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Leaves_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Monthly_Leaves_Emp_company" ManuallyRouted="false" />
+        <AssociationConnector Association="HRMSystemModel.FK_Payroll_Emp_company" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
